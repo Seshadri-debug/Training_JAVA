@@ -1,0 +1,38 @@
+import java.util.*;
+
+class Main{
+    static class Node{
+        int data;
+        Node nxt;
+    }
+    public static void insert(Node head){
+        Node ob=new Node();
+        Scanner sc=new Scanner(System.in);
+        ob.data=sc.nextInt();
+        ob.nxt=head.nxt;
+        head.nxt=ob;
+    }
+    public static void sum(Node head){
+        Node t=head.nxt;
+        int c=0;
+        while(t!=null){
+            if(t.data!=0){
+                if((t.data%2)==0){
+                    c=c+t.data;
+                }
+            }
+            t=t.nxt;
+        }
+        System.out.println("The sum of the Even Numbers="+c);
+    }
+    public static void main(String args[]){
+        Node head=new Node();
+        head.nxt=null;
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        for(int i=0;i<n;i++){
+            insert(head);
+        }
+        sum(head);
+    }
+}
